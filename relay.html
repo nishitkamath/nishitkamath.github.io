@@ -1,6 +1,6 @@
 <!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title>
 <script>
 fetch('img/linkedin-banner.png?'+Date.now()).then(r=>r.arrayBuffer()).then(b=>{
-  if(window.opener){window.opener.postMessage({nk:'banner',buf:b},'https://www.linkedin.com');document.title='sent '+b.byteLength;}
+  var t=window.opener||(window.parent!==window?window.parent:null); if(t){t.postMessage({nk:'banner',buf:b},'https://www.linkedin.com');document.title='sent '+b.byteLength;}
 });
 </script>
